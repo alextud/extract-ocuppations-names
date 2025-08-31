@@ -170,17 +170,17 @@ def main():
     parser.add_argument('--extracted', default='extracted_occupations.csv', help='Output CSV with extracted occupations')
     args = parser.parse_args()
 
-    # df = load_records(args.input)
-    # df_translated = translate_records(df.copy())
-    # df_translated.to_csv(args.translated, index=False)
+    df = load_records(args.input)
+    df_translated = translate_records(df.copy())
+    df_translated.to_csv(args.translated, index=False)
 
-    # df_extracted = extract_occupations(df_translated.copy())
-    # df_extracted.to_csv(args.extracted, index=False)
+    df_extracted = extract_occupations(df_translated.copy())
+    df_extracted.to_csv(args.extracted, index=False)
 
     # Load the already translated CSV file
-    df = pd.read_csv("translated_to_english.csv")
-    df_extracted = extract_occupations(df.copy())
-    df_extracted.to_csv("extracted_occupations.csv", index=False)
+    # df = pd.read_csv("translated_to_english.csv")
+    # df_extracted = extract_occupations(df.copy())
+    # df_extracted.to_csv("extracted_occupations.csv", index=False)
 
 if __name__ == '__main__':
     main()
